@@ -1,6 +1,9 @@
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.event.KeyListener;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -21,7 +24,9 @@ public class finalProject extends JComponent{
     long desiredFPS = 60;
     long desiredTime = (1000)/desiredFPS;
     
-
+    //game variables
+    Color ground = new Color(209, 130, 46);
+    Rectangle car = new Rectangle(345, 400, 125, 175);
     
     // drawing of the game happens in here
     // we use the Graphics object, g, to perform the drawing
@@ -33,8 +38,18 @@ public class finalProject extends JComponent{
         g.clearRect(0, 0, WIDTH, HEIGHT);
         
         // GAME DRAWING GOES HERE 
+        g.setColor(ground);
+        g.fillRect(0, 0, WIDTH, HEIGHT);
         
+        g.setColor(Color.GRAY);
+        g.fillRect(100, 0, 600, HEIGHT);
         
+        g.setColor(Color.WHITE);
+        g.fillRect(300, 0, 10, HEIGHT);
+        g.fillRect(500, 0, 10, HEIGHT);
+        
+        g.setColor(Color.RED);
+        g.fillRect(car.x, car.y, car.width, car.height);
         // GAME DRAWING ENDS HERE
     }
     
@@ -99,6 +114,7 @@ public class finalProject extends JComponent{
         // adds the game to the window
         frame.add(game);
          
+        
         // sets some options and size of the window automatically
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
