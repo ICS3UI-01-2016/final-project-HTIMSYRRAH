@@ -28,6 +28,11 @@ public class finalProject extends JComponent{
     Color ground = new Color(209, 130, 46);
     Rectangle car = new Rectangle(345, 400, 125, 175);
     
+    int moveLeft = -200;
+    int moveRight = 200;
+    
+   
+    
     // drawing of the game happens in here
     // we use the Graphics object, g, to perform the drawing
     // NOTE: This is already double buffered!(helps with framerate/speed)
@@ -50,6 +55,8 @@ public class finalProject extends JComponent{
         
         g.setColor(Color.RED);
         g.fillRect(car.x, car.y, car.width, car.height);
+        
+        
         // GAME DRAWING ENDS HERE
     }
     
