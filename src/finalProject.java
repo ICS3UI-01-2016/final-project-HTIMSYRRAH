@@ -27,11 +27,13 @@ public class finalProject extends JComponent{
     //game variables
     Color ground = new Color(209, 130, 46);
     Rectangle car = new Rectangle(345, 400, 125, 175);
-    
+    Rectangle lane1 = new Rectangle(100, -25, 200, 25);
+    Rectangle lane2 = new Rectangle(310, -625, 190, 25);
+    Rectangle lane3 = new Rectangle(510, -325, 190, 25);
     int moveLeft = -200;
     int moveRight = 200;
-    
-   
+    int speed = 4;
+    boolean start = true;
     
     // drawing of the game happens in here
     // we use the Graphics object, g, to perform the drawing
@@ -55,6 +57,11 @@ public class finalProject extends JComponent{
         
         g.setColor(Color.RED);
         g.fillRect(car.x, car.y, car.width, car.height);
+        
+        g.setColor(Color.ORANGE);
+        g.fillRect(lane1.x, lane1.y, lane1.width, lane1.height);
+        g.fillRect(lane2.x, lane2.y, lane2.width, lane2.height);
+        g.fillRect(lane3.x, lane3.y, lane3.width, lane3.height);
         
         
         // GAME DRAWING ENDS HERE
@@ -80,9 +87,11 @@ public class finalProject extends JComponent{
             
             // all your game rules and move is done in here
             // GAME LOGIC STARTS HERE 
-            
-            
-
+            if (start){
+            lane1.y = lane1.y + speed;
+            lane2.y = lane2.y + speed;
+            lane3.y = lane3.y + speed;
+            }
             // GAME LOGIC ENDS HERE 
             
             // update the drawing (calls paintComponent)
