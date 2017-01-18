@@ -91,6 +91,15 @@ public class finalProject extends JComponent{
             lane1.y = lane1.y + speed;
             lane2.y = lane2.y + speed;
             lane3.y = lane3.y + speed;
+            if (lane1.y >= 600){
+            lane1.y = -300;
+            }
+            if (lane3.y >= 600){
+                lane3.y = -300;
+            }
+            if (lane2.y >= 600){
+                lane2.y = -300;
+            }
             }
             // GAME LOGIC ENDS HERE 
             
