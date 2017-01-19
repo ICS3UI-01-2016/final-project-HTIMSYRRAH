@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -13,7 +14,7 @@ import javax.swing.JFrame;
  */
 
 
-public class finalProject extends JComponent{
+public class finalProject extends JComponent implements KeyListener{
 
     // Height and Width of our game
     static final int WIDTH = 800;
@@ -100,6 +101,7 @@ public class finalProject extends JComponent{
             if (lane2.y >= 600){
                 lane2.y = -300;
             }
+            
             }
             // GAME LOGIC ENDS HERE 
             
@@ -150,4 +152,26 @@ public class finalProject extends JComponent{
         // starts my game loop
         game.run();
     }
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+   
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int key = e.getKeyCode();
+        if(key == KeyEvent.VK_LEFT){
+           car.x = car.x + moveLeft;
+        }
+        if(key == KeyEvent.VK_RIGHT){
+            car.x = car.x + moveRight;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    
+               
+}
 }
