@@ -33,7 +33,7 @@ public class finalProject extends JComponent implements KeyListener{
     Rectangle lane3 = new Rectangle(510, -325, 190, 25);
     int moveLeft = -200;
     int moveRight = 200;
-    int speed = 4;
+    int speed = 5;
     boolean start = true;
     
     // drawing of the game happens in here
@@ -141,7 +141,7 @@ public class finalProject extends JComponent implements KeyListener{
         // adds the game to the window
         frame.add(game);
          
-        
+        frame.addKeyListener(game);
         // sets some options and size of the window automatically
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -161,10 +161,10 @@ public class finalProject extends JComponent implements KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if(key == KeyEvent.VK_LEFT){
+        if(key == KeyEvent.VK_LEFT && car.x > 145){
            car.x = car.x + moveLeft;
         }
-        if(key == KeyEvent.VK_RIGHT){
+        if(key == KeyEvent.VK_RIGHT && car.x < 545){
             car.x = car.x + moveRight;
         }
     }
