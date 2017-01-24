@@ -33,7 +33,7 @@ public class finalProject extends JComponent implements KeyListener{
     Rectangle lane3 = new Rectangle(510, -325, 190, 25);
     int moveLeft = -200;
     int moveRight = 200;
-    int speed = 5;
+    int speed = 7;
     boolean start = true;
     
     // drawing of the game happens in here
@@ -101,7 +101,15 @@ public class finalProject extends JComponent implements KeyListener{
             if (lane2.y >= 600){
                 lane2.y = -300;
             }
-            
+            if(car.x == 145 && car.intersects(lane1)){
+                done = true;
+            }
+            if(car.x == 345 && car.intersects(lane2)){
+                done = true;
+            }
+            if (car.x == 545 && car.intersects(lane3)){
+                done = true;
+            }
             }
             // GAME LOGIC ENDS HERE 
             
