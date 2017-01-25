@@ -56,9 +56,11 @@ public class finalProject extends JComponent implements KeyListener{
         g.fillRect(300, 0, 10, HEIGHT);
         g.fillRect(500, 0, 10, HEIGHT);
         
+        //draw the car
         g.setColor(Color.RED);
         g.fillRect(car.x, car.y, car.width, car.height);
-        
+       
+        //draw the obstacles
         g.setColor(Color.ORANGE);
         g.fillRect(lane1.x, lane1.y, lane1.width, lane1.height);
         g.fillRect(lane2.x, lane2.y, lane2.width, lane2.height);
@@ -89,6 +91,7 @@ public class finalProject extends JComponent implements KeyListener{
             // all your game rules and move is done in here
             // GAME LOGIC STARTS HERE 
             if (start){
+                //make the obstacles move so the car "drives"
             lane1.y = lane1.y + speed;
             lane2.y = lane2.y + speed;
             lane3.y = lane3.y + speed;
@@ -101,6 +104,7 @@ public class finalProject extends JComponent implements KeyListener{
             if (lane2.y >= 600){
                 lane2.y = -300;
             }
+            //stop the car when it hits an obstacle
             if(car.x == 145 && car.intersects(lane1)){
                 done = true;
             }
@@ -161,13 +165,12 @@ public class finalProject extends JComponent implements KeyListener{
         game.run();
     }
     @Override
-    public void keyTyped(KeyEvent e) {
-        
+    public void keyTyped(KeyEvent e) {   
     }
-
-   
+    
     @Override
     public void keyPressed(KeyEvent e) {
+        // make the car change lanes either left or right
         int key = e.getKeyCode();
         if(key == KeyEvent.VK_LEFT && car.x > 145){
            car.x = car.x + moveLeft;
@@ -176,10 +179,8 @@ public class finalProject extends JComponent implements KeyListener{
             car.x = car.x + moveRight;
         }
     }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
     
-               
+    @Override
+    public void keyReleased(KeyEvent e) {             
 }
 }
